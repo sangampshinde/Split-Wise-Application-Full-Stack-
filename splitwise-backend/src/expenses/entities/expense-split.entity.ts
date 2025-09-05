@@ -5,14 +5,14 @@ import { Expense } from './expense.entity';
    @Entity()
    export class ExpenseSplit {
      @PrimaryGeneratedColumn('uuid')
-     id: string;
+     id!: string;
 
      @ManyToOne(() => User, (user) => user.id)
-     user: User;
+     user!: User;
 
      @ManyToOne(() => Expense, (expense) => expense.splits)
-     expense: Expense;
+     expense!: Expense;
 
      @Column('decimal')
-     amount: number;
+     amount!: number;
    }

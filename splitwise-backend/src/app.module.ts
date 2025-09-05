@@ -6,10 +6,11 @@ import { UsersModule } from './users/users.module';
 import { GroupsModule } from './groups/groups.module';
 import { ExpensesModule } from './expenses/expenses.module';
 import { NotificationsModule } from './notifications/notifications.module';
-import { CacheModule } from './cache/cache.module';
+import { CacheModule } from '@nestjs/cache-manager';
+import { CacheCustomModule } from './cache/cache.module';
 
 @Module({
-  imports: [AuthModule, UsersModule, GroupsModule, ExpensesModule, NotificationsModule, CacheModule],
+  imports: [AuthModule, UsersModule, GroupsModule, ExpensesModule, NotificationsModule, CacheCustomModule],
   controllers: [AppController],
   providers: [AppService],
 })

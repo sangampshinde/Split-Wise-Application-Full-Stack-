@@ -1,4 +1,5 @@
-import { Module, CacheModule } from '@nestjs/common';
+import { Module } from '@nestjs/common';
+import { CacheModule } from '@nestjs/cache-manager';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { redisConfig } from 'src/config/redis.config';
 import { CacheService } from './cache.service';
@@ -15,6 +16,6 @@ import { CacheService } from './cache.service';
        }),
      ],
      providers: [CacheService],
-     exports: [CacheService],
+     exports: [CacheService,CacheModule],
    })
    export class CacheCustomModule {}

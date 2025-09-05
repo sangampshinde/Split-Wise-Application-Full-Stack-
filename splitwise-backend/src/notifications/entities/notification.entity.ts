@@ -1,23 +1,23 @@
-import { Entity, Column, PrimaryGeneratedColumn, ManyToOne } from 'typeorm';
+import { Entity, Column, PrimaryGeneratedColumn, ManyToOne, CreateDateColumn } from 'typeorm';
 import { User } from '../../users/entities/user.entity';
 
    @Entity()
    export class Notification {
      @PrimaryGeneratedColumn('uuid')
-     id: string;
+     id!: string;
 
      @ManyToOne(() => User, (user) => user.notifications)
-     user: User;
+     user!: User;
 
      @Column()
-     message: string;
+     message!: string;
 
      @Column()
-     type: string;
+     type!: string;
 
      @Column({ default: false })
-     read: boolean;
+     read!: boolean;
 
-     @Column()
-     createdAt: Date;
+     @CreateDateColumn()
+     createdAt!: Date;
    }

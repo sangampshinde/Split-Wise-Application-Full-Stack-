@@ -4,14 +4,14 @@ import { User } from '../../users/entities/user.entity';
    @Entity()
    export class Balance {
      @PrimaryGeneratedColumn('uuid')
-     id: string;
+     id!: string;
 
      @ManyToOne(() => User, (user) => user.balances)
-     user: User;
+     user!: User;
 
      @ManyToOne(() => User, (user) => user.owedBalances)
-     owesTo: User;
+     owesTo!: User;
 
      @Column('decimal')
-     amount: number;
+     amount!: number;
    }

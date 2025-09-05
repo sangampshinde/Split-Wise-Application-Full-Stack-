@@ -6,18 +6,18 @@ import { Expense } from '../../expenses/entities/expense.entity';
 export class Group {
 
     @PrimaryGeneratedColumn('uuid')
-    id: string;
+    id!: string;
 
     @Column()
-    name: string;
+    name!: string;
 
     @ManyToOne(() => User, (user) => user.id)
-    createdBy: User;
+    createdBy!: User;
 
     @ManyToMany(() => User, (user) => user.groups)
-    members: User[];
+    members!: User[];
 
     @OneToMany(() => Expense, (expense) => expense.group)
-    expenses: Expense[];
+    expenses!: Expense[];
 
 }

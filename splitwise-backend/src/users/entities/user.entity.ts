@@ -11,32 +11,33 @@ import { Group } from '../../groups/entities/group.entity';
 import { Notification } from '../../notifications/entities/notification.entity';
 import { Balance } from '../../expenses/entities/balance.entity';
 
-Entity();
+@Entity()
 export class User {
   @PrimaryGeneratedColumn('uuid')
-  id: string;
+  id!: string;
 
   @Column({ unique: true })
-  email: string;
+  email!: string;
 
   @Column()
-  password: string;
+  password!: string;
 
   @Column()
-  name: string;
+  name!: string;
 
   @OneToMany(() => Expense, (expense) => expense.paidBy)
-  expensesPaid: Expense[];
+  expensesPaid!: Expense[];
+
   @OneToMany(() => Notification, (notification) => notification.user)
-  notifications: Notification[];
+  notifications!: Notification[];
 
   @OneToMany(() => Balance, (balance) => balance.user)
-  balances: Balance[];
+  balances!: Balance[];
 
   @OneToMany(() => Balance, (balance) => balance.owesTo)
-  owedBalances: Balance[];
+  owedBalances!: Balance[];
 
   @ManyToMany(() => Group, (group) => group.members)
   @JoinTable()
-  groups: Group[];
+  groups!: Group[];
 }

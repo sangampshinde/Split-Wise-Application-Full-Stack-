@@ -6,23 +6,23 @@ import { ExpenseSplit } from './expense-split.entity'
  @Entity()
    export class Expense {
      @PrimaryGeneratedColumn('uuid')
-     id: string;
+     id!: string;
 
      @Column()
-     description: string;
+     description!: string;
 
      @Column('decimal')
-     amount: number;
+     amount!: number;
 
      @ManyToOne(() => User, (user) => user.expensesPaid)
-     paidBy: User;
+     paidBy!: User;
 
      @ManyToOne(() => Group, (group) => group.expenses)
-     group: Group;
+     group!: Group;
 
      @OneToMany(() => ExpenseSplit, (split) => split.expense)
-     splits: ExpenseSplit[];
+     splits!: ExpenseSplit[];
 
      @Column()
-     createdAt: Date;
+     createdAt!: Date;
    }
